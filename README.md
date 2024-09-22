@@ -1,11 +1,8 @@
-# tube clone
+# Tube Clone
 
-esta app es un clon del hompage de youtube
-empleando
-treact
-typescript
-tailwind css
+This app is a clone of YouTube's homepage, built using Treact, TypeScript, and Tailwind CSS.
 
-la intencion es presentar informacion de videos reales
-pero no se enterga el reproductor de los videos por derechos de autoria
-al linkear a un video, sera redirigido a la pagina oficial de youtube
+
+The goal of this project is to display static video data as a way to simulate a YouTube homepage. Since this is purely an exercise in applying technologies like Treact, TypeScript, and Tailwind CSS in a responsive design, no video player is included due to copyright restrictions. All video links are placeholders, and clicking on them will redirect you to the official YouTube page.
+
+This project is an excellent demonstration of frontend development skills, focusing on clean code, component-based architecture, and responsive design principles.
