@@ -5,12 +5,14 @@ import PageHeader from './layout/page-header'
 import CategoryPills from './components/categoryPills'
 import { categories, videos } from './data/home'
 import VideoGridItem from './components/VideoGridItem'
-import Sidebar from './layout/sidebar'
+import {Sidebar} from './layout/sidebar'
+import { SidebarProvider } from './contexts/SidebarContext'
 
  function App() {
   const [selectedCategory, setSelectedCategory] = useState(categories[0])
 
   return (
+    <SidebarProvider>
     <div className='max-h-screen flex flex-col'>
       <PageHeader></PageHeader>
       <main className='grid grid-cols-[auto,1fr] flex-grow-1 overflow-auto'>
@@ -47,6 +49,7 @@ import Sidebar from './layout/sidebar'
 
       </main>
     </div>
+    </SidebarProvider>
   )
 }
 export default App

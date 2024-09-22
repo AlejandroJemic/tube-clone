@@ -1,22 +1,18 @@
 import { ArrowLeft, Bell, CircleUserRound, Menu, Mic, Search, Video, Youtube } from "lucide-react";
 import Button from "../components/button";
 import { useState } from "react";
+import { useSidebarContext } from "../contexts/SidebarContext";
 
 export default function PageHeader() {
   const [showFullWidthSearch, setshowFullWidthSearch] = useState(false)
 
+
+  
   return (
     <header className="p-1 flex gap-10 lg:gap-20 justify-between flex-row mb-6 mx-2">
       {/* logo */}
-      <div className={`${showFullWidthSearch ? "hidden" : "flex items-center flex-shrink-0 flex-row justify-center"}`} >
-        <Button variant='ghost' size='icon'>
-          <Menu />
-        </Button>
-        <a href="/" className="text-2xl m-0 inline-flex gap-1 items-center p-2 justify-center">
-          <Youtube className="w-9 h-9" />
-          <span className="pb-0.5">TubeClone</span>
-        </a>
-      </div>
+
+      <PageHeaderFirstSection hidden={showFullWidthSearch} />
       {/* search */}
       <form  className={`md:flex gap-4  flex-row flex-grow justify-center ${showFullWidthSearch ? "flex" : " hidden"}`} >
         {showFullWidthSearch && <Button  type='button'  variant='ghost' size='icon' 
@@ -59,5 +55,28 @@ export default function PageHeader() {
       </div>
 
     </header>
+  )
+}
+
+
+type PageHeaderFirstSectionProps = {
+  hidden?: boolean
+}
+
+export function PageHeaderFirstSection({
+  hidden = false,
+}: PageHeaderFirstSectionProps) {
+  const { toggle } = useSidebarContext()
+
+  return (
+    <div className={`${hidden ? "hidden" : "flex items-center flex-shrink-0 flex-row justify-center"}`} >
+    <Button onClick={toggle} variant='ghost' size='icon'>
+      <Menu />
+    </Button>
+    <a href="/" className="text-2xl m-0 inline-flex gap-1 items-center p-1 justify-center">
+      <Youtube className="w-9 h-9" />
+      <span className="pb-0.5">TubeClone</span>
+    </a>
+  </div>
   )
 }
